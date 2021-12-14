@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
-from .serializers import AuthorSerializer, GenreSerializer, BookSerializer
-from .models import Author, Genre, Book
+from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, ApplicationSerializer
+from .models import Author, Genre, Book, Application
 # from git import Repo
 
 # Create your views here.
@@ -42,3 +42,8 @@ class GenreAPI(viewsets.ModelViewSet):
 class BookAPI(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+
+class ApplicationAPI(viewsets.ModelViewSet):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer

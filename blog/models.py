@@ -46,3 +46,28 @@ class Book(models.Model):
 
     def __str__(self):
         return self.name
+
+
+PROFESSION_LIST = (
+    ('Инженер', 'Инженер'),
+    ('Ученый', 'Ученый'),
+    ('Психолог', 'Психолог'),
+    ('Другая', 'Другая'),
+)
+
+
+class Application(models.Model):
+    name = models.CharField('Ваше имя', max_length=100)
+    email = models.EmailField('Почта')
+    age = models.PositiveSmallIntegerField('Возраст')
+    profession = models.CharField(
+        'Профессия', max_length=9, choices=PROFESSION_LIST)
+    i_work_nasa = models.BooleanField('Я работал в Nasa')
+    file = models.FileField('Фото')
+
+    class Meta:
+        verbose_name = 'Заявку'
+        verbose_name_plural = 'Заявка'
+
+    def __str__(self):
+        return self.name
