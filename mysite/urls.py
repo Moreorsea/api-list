@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from blog.views import AuthorAPI, GenreAPI, BookAPI, ApplicationAPI
+from blog.views import AuthorAPI, GenreAPI, BookAPI, ApplicationAPI, \
+    IrvacApplyAPI, IrvacFullApplyAPI, SwitterAPI
 
 router = routers.DefaultRouter()
 router.register(r'author', AuthorAPI)
 router.register(r'genre', GenreAPI)
 router.register(r'book', BookAPI)
 router.register(r'apply', ApplicationAPI)
+router.register(r'apply-irvac', IrvacApplyAPI)
+router.register(r'apply-irvac-full', IrvacFullApplyAPI)
+router.register(r'posts', SwitterAPI)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

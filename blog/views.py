@@ -1,11 +1,13 @@
 # import git
 from django.shortcuts import render
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
-from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, ApplicationSerializer
-from .models import Author, Genre, Book, Application
+from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, \
+    ApplicationSerializer, IrvacApplySerializer, \
+    IrvacFullApplySerializer, SwitterSerializer
+from .models import Author, Genre, Book, Application, IrvacApply, \
+    IrvacFullApply, Switter
 # from git import Repo
 
 # Create your views here.
@@ -47,3 +49,18 @@ class BookAPI(viewsets.ModelViewSet):
 class ApplicationAPI(viewsets.ModelViewSet):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+
+
+class IrvacApplyAPI(viewsets.ModelViewSet):
+    queryset = IrvacApply.objects.all()
+    serializer_class = IrvacApplySerializer
+
+
+class IrvacFullApplyAPI(viewsets.ModelViewSet):
+    queryset = IrvacFullApply.objects.all()
+    serializer_class = IrvacFullApplySerializer
+
+
+class SwitterAPI(viewsets.ModelViewSet):
+    queryset = Switter.objects.all()
+    serializer_class = SwitterSerializer

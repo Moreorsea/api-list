@@ -4,6 +4,18 @@ from django.urls import reverse
 # Create your models here.
 
 
+class Todo(models.Model):
+    title = models.CharField(max_length=255)
+    completed = models.BooleanField('Я работал в Nasa', default=False)
+
+    class Meta:
+        verbose_name = 'Запись'
+        verbose_name_plural = 'Запись'
+
+    def __str__(self):
+        return self.title
+
+
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -71,3 +83,71 @@ class Application(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class IrvacApply(models.Model):
+    name = models.CharField('Ваше имя', max_length=100)
+    phone = models.CharField('Номер телефона', max_length=11)
+    dt = models.DateTimeField('Дата заявки', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Заявку'
+        verbose_name_plural = 'Заявка ИРВАС'
+
+    def __str__(self):
+        return self.name
+
+
+TYPE_LIST = (
+    ('Холодное', 'Холодное'),
+    ('Теплое', 'Теплое'),
+)
+
+
+class IrvacFullApply(models.Model):
+    form = models.CharField('Форма балкона', max_length=100)
+    width = models.CharField('Ширина', max_length=100)
+    height = models.CharField('Высота', max_length=100)
+    type = models.CharField('Тип остекления', max_length=100)
+    profile = models.CharField(
+        'Тип остекления', max_length=9, choices=TYPE_LIST)
+    name = models.CharField('Ваше имя', max_length=100)
+    phone = models.CharField('Номер телефона', max_length=11)
+    dt = models.DateTimeField('Дата заявки', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Заявку'
+        verbose_name_plural = 'Заявка ИРВАС замерщик'
+
+    def __str__(self):
+        return self.name
+
+
+class Quiz(models.Model):
+    question = models.CharField('Вопрос', max_length=100)
+    answer_1 = models.CharField('1 ответ', max_length=100)
+    answer_2 = models.CharField('2 ответ', max_length=100)
+    answer_3 = models.CharField('3 ответ', max_length=100)
+    answer_4 = models.CharField('4 ответ', max_length=100)
+    answer_right = models.CharField('Верный ответ', max_length=100)
+
+    class Meta:
+        verbose_name = 'Квиз'
+        verbose_name_plural = 'Квиз'
+
+    def __str__(self):
+        return self.question
+
+
+class Switter(models.Model):
+    title = models.CharField('Заголовок', max_length=255)
+    text = models.TextField('Текст сообщения', max_length=1000)
+    likes = models.SmallIntegerField('Лайки')
+    reposts = models.SmallIntegerField('Репосты')
+
+    class Meta:
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты для Свиттера'
+
+    def __str__(self):
+        return self.title
