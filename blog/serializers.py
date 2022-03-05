@@ -1,6 +1,13 @@
 from rest_framework import serializers
+from rest_framework.pagination import PageNumberPagination
 from .models import Author, Genre, Book, Application, IrvacApply, \
                     IrvacFullApply, Switter, Todo
+
+
+class TodoSetPagination(PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'limit'
+    max_page_size = 100
 
 
 class TodoSerializer(serializers.ModelSerializer):

@@ -5,7 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, \
     ApplicationSerializer, IrvacApplySerializer, \
-    IrvacFullApplySerializer, SwitterSerializer, TodoSerializer
+    IrvacFullApplySerializer, SwitterSerializer, TodoSerializer, \
+    TodoSetPagination
 from .models import Author, Genre, Book, Application, IrvacApply, \
     IrvacFullApply, Switter, Todo
 
@@ -31,6 +32,7 @@ def update(request):
 class TodoAPI(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+    pagination_class = TodoSetPagination
 
 
 class AuthorAPI(viewsets.ModelViewSet):

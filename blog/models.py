@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class Todo(models.Model):
     title = models.CharField(max_length=255)
-    completed = models.BooleanField('Я работал в Nasa', default=False)
+    completed = models.BooleanField('Completed', default=False)
 
     class Meta:
         verbose_name = 'Запись'
