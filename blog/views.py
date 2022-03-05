@@ -5,12 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, \
     ApplicationSerializer, IrvacApplySerializer, \
-    IrvacFullApplySerializer, SwitterSerializer
+    IrvacFullApplySerializer, SwitterSerializer, TodoSerializer
 from .models import Author, Genre, Book, Application, IrvacApply, \
-    IrvacFullApply, Switter
-# from git import Repo
-
-# Create your views here.
+    IrvacFullApply, Switter, Todo
 
 
 @csrf_exempt
@@ -29,6 +26,11 @@ def update(request):
         return HttpResponse("Updated code on PythonAnywhere")
     else:
         return HttpResponse("Couldn't update the code on PythonAnywhere")
+
+
+class TodoAPI(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
 
 
 class AuthorAPI(viewsets.ModelViewSet):

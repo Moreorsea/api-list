@@ -1,5 +1,12 @@
 from rest_framework import serializers
-from .models import Author, Genre, Book, Application, IrvacApply, IrvacFullApply, Switter
+from .models import Author, Genre, Book, Application, IrvacApply, \
+                    IrvacFullApply, Switter, Todo
+
+
+class TodoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Todo
+        fields = '__all__'
 
 
 class AuthorSerializer(serializers.ModelSerializer):
