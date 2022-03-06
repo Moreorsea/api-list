@@ -13,7 +13,7 @@ class TodoSetPagination(PageNumberPagination):
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
-        fields = '__all__'
+        exclude = ('dt',)
 
 
 class AuthorSerializer(serializers.ModelSerializer):

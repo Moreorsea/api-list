@@ -7,10 +7,12 @@ from django.urls import reverse
 class Todo(models.Model):
     title = models.CharField(max_length=255)
     completed = models.BooleanField('Completed', default=False)
+    dt = models.DateTimeField('Дата создания записи', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Запись'
         verbose_name_plural = 'Запись'
+        ordering = ('-dt',)
 
     def __str__(self):
         return self.title
