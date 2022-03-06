@@ -11,3 +11,5 @@ node_modules/
 docker-compose.override.yml
 .env
 .idea/
+blog/__pycache__/
+mysite/__pycache__/
