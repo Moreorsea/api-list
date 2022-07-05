@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Author, Genre, Book, Application, IrvacApply, \
-    IrvacFullApply, Switter
+    IrvacFullApply, Switter, Flat
 
 # Register your models here.
 admin.site.register(Author)
@@ -10,3 +10,4 @@ admin.site.register(Application)
 admin.site.register(IrvacApply)
 admin.site.register(IrvacFullApply)
 admin.site.register(Switter)
+admin.site.register(Flat)

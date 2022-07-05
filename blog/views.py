@@ -6,9 +6,9 @@ from rest_framework import viewsets
 from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, \
     ApplicationSerializer, IrvacApplySerializer, \
     IrvacFullApplySerializer, SwitterSerializer, TodoSerializer, \
-    TodoSetPagination
+    TodoSetPagination, FlatSerializer
 from .models import Author, Genre, Book, Application, IrvacApply, \
-    IrvacFullApply, Switter, Todo
+    IrvacFullApply, Switter, Todo, Flat
 
 
 @csrf_exempt
@@ -68,3 +68,8 @@ class IrvacFullApplyAPI(viewsets.ModelViewSet):
 class SwitterAPI(viewsets.ModelViewSet):
     queryset = Switter.objects.all()
     serializer_class = SwitterSerializer
+
+
+class FlatAPI(viewsets.ModelViewSet):
+    queryset = Flat.objects.all()
+    serializer_class = FlatSerializer

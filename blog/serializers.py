@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.pagination import PageNumberPagination
 from .models import Author, Genre, Book, Application, IrvacApply, \
-                    IrvacFullApply, Switter, Todo
+                    IrvacFullApply, Switter, Todo, Flat
 
 
 class TodoSetPagination(PageNumberPagination):
@@ -55,4 +55,10 @@ class IrvacFullApplySerializer(serializers.ModelSerializer):
 class SwitterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Switter
+        fields = '__all__'
+
+
+class FlatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Flat
         fields = '__all__'

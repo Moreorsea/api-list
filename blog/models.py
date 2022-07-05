@@ -153,3 +153,28 @@ class Switter(models.Model):
 
     def __str__(self):
         return self.title
+
+
+COUNT_ROOM_LIST = (
+    ('1к', '1к'),
+    ('2к', '2к'),
+    ('3к', '3к'),
+    ('4к', '4к'),
+)
+
+
+class Flat(models.Model):
+    name = models.CharField('Квартира', max_length=100)
+    square = models.CharField('Площадь', max_length=100)
+    floor = models.CharField('Этажность', max_length=100)
+    price = models.CharField('Цена', max_length=100)
+    count_room = models.CharField(
+        'Количество комнат', max_length=9, choices=COUNT_ROOM_LIST)
+    image = models.ImageField('Загрузить планировку')
+
+    class Meta:
+        verbose_name = 'Квартиру'
+        verbose_name_plural = 'Квартира'
+
+    def __str__(self):
+        return self.name
