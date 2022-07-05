@@ -165,9 +165,9 @@ COUNT_ROOM_LIST = (
 
 class Flat(models.Model):
     name = models.CharField('Квартира', max_length=100)
-    square = models.CharField('Площадь', max_length=100)
+    square = models.IntegerField('Площадь')
     floor = models.CharField('Этажность', max_length=100)
-    price = models.CharField('Цена', max_length=100)
+    price = models.IntegerField('Цена')
     count_room = models.CharField(
         'Количество комнат', max_length=9, choices=COUNT_ROOM_LIST)
     image = models.ImageField('Загрузить планировку')
