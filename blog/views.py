@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
+from .filters import FlatFilter
 from .serializers import AuthorSerializer, GenreSerializer, BookSerializer, \
     ApplicationSerializer, IrvacApplySerializer, \
     IrvacFullApplySerializer, SwitterSerializer, TodoSerializer, \
@@ -73,3 +74,4 @@ class SwitterAPI(viewsets.ModelViewSet):
 class FlatAPI(viewsets.ModelViewSet):
     queryset = Flat.objects.all()
     serializer_class = FlatSerializer
+    filterset_class = FlatFilter
