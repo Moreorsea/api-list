@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 from blog.views import AuthorAPI, GenreAPI, BookAPI, ApplicationAPI, \
     IrvacApplyAPI, IrvacFullApplyAPI, SwitterAPI, TodoAPI, FlatAPI
+from taskmanager.views import TaskAPI
 
 router = routers.DefaultRouter()
 router.register(r'author', AuthorAPI)
@@ -29,6 +30,7 @@ router.register(r'apply-irvac-full', IrvacFullApplyAPI)
 router.register(r'posts', SwitterAPI)
 router.register(r'todos', TodoAPI)
 router.register(r'flat-list', FlatAPI)
+router.register(r'tasks', TaskAPI)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
