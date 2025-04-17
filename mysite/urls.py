@@ -31,6 +31,7 @@ router.register(r'posts', SwitterAPI)
 router.register(r'todos', TodoAPI)
 router.register(r'flat-list', FlatAPI)
 router.register(r'tasks', TaskAPI)
+router.register(r'task/<int:pk>', TaskAPI, name="task-update")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
